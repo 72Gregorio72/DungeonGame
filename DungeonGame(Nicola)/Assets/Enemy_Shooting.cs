@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy_Shooting : MonoBehaviour
 {
     public GameObject projectile;
-    public Transform player;
+    //public Transform player;
     public Transform shotPoint;
     public float launchforce = 0f;
 
@@ -13,7 +13,7 @@ public class Enemy_Shooting : MonoBehaviour
     public float shootTime;
     bool isShoot = false;
     bool startCount = true;
-    float dir = 1;
+    //float dir = 1;
 
     // Update is called once per frame
     void Update()

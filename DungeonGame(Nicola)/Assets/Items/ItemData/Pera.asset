@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f18bdb427ce7cbc4fbb97db096ce3e0c, type: 3}
-  m_Name: Banana
+  m_Name: Pera
   m_EditorClassIdentifier: 
-  itemName: banana
-  itemDescr: nicola gay
-  itemImage: {fileID: 21300000, guid: 236336609e507b3468640ef65e62bcd0, type: 3}
-  itemPrice: 50
+  itemName: Pera
+  itemDescr: zio pera
+  itemImage: {fileID: 21300000, guid: 9d2ee4a54a8ee1a459e6cffc9fcc8a92, type: 3}
+  itemPrice: 200

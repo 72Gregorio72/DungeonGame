@@ -20,9 +20,14 @@ public class Pick_Up : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player")){
-            //add item to the list 
+            if(GameManager.instance.itemNumbers.Count < GameManager.instance.slots.Length){
+                //add item to the list 
             GameManager.instance.AddItem(item);
             Destroy(gameObject);
+            } else {
+                //inventory is full
+                Debug.Log("Inventory is full");
+            }
         }
     }
 }

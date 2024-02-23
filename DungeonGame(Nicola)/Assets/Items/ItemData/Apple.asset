@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   itemName: Apple
-  itemDescr: an apple
+  itemDescr: una mela al giorno toglie il medico di torno
   itemImage: {fileID: 21300000, guid: 276b25ba8c3782641937fd390637e610, type: 3}
   itemPrice: 100
