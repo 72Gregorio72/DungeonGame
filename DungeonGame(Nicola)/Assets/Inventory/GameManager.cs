@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,16 +39,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DisplayItems(){
+    public void DisplayItems()
+    {
         Debug.Log("Displaying items");
-        for(int i = 0; i < items.Count; i++){
-            if(i < slots.Length){
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (i < slots.Length && slots[i] != null)
+            {
                 slots[i].transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
                 slots[i].transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = items[i].itemImage;
 
-                //slots[i].transform.GetChild(1).GetComponent<Text>().color = new Color(1, 1, 1, 1);
-                //slots[i].transform.GetChild(1).GetComponent<Text>().text = itemNumbers[i].ToString();
-
+                slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = itemNumbers[i].ToString();
+                slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, 1);
+                slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = Color.black;
+                
                 slots[i].transform.GetChild(2).gameObject.SetActive(true);
             }
         }
