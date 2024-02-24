@@ -16,3 +16,4 @@ MonoBehaviour:
   itemDescr: zio pera
   itemImage: {fileID: 21300000, guid: 9d2ee4a54a8ee1a459e6cffc9fcc8a92, type: 3}
   itemPrice: 200
+  itemPrefab: {fileID: 5282358471946095027, guid: 7e32cce35a3eaa440a634ca52a4c43d6, type: 3}
