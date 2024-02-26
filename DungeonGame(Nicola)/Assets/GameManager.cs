@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,8 +18,6 @@ public class GameManager : MonoBehaviour
 
     public ItemButton thisButton;
     public ItemButton[] itemButtons;
-
-    public GameObject player;
 
     private void Awake()
     {
@@ -87,7 +84,6 @@ public class GameManager : MonoBehaviour
                 slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = Color.black;
                 
                 slots[i].transform.GetChild(2).gameObject.SetActive(true);
-                slots[i].transform.GetChild(3).gameObject.SetActive(true);
             } else {
                 slots[i].transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
                 slots[i].transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = null;
@@ -97,7 +93,6 @@ public class GameManager : MonoBehaviour
                 slots[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = Color.black;
                 
                 slots[i].transform.GetChild(2).gameObject.SetActive(false);
-                slots[i].transform.GetChild(3).gameObject.SetActive(false);
             }
         }
     }
@@ -107,6 +102,7 @@ public class GameManager : MonoBehaviour
             items.Add(item);
             itemNumbers.Add(1);
         } else {
+            Debug.Log("Item already in inventory");
             for(int i = 0; i < items.Count; i++){
                 if(items[i] == item){
                     itemNumbers[i]++;
@@ -122,17 +118,15 @@ public class GameManager : MonoBehaviour
             for(int i = 0; i < items.Count; i++){
                 if(items[i] == item){
                     itemNumbers[i]--;
-                    Instantiate(item.itemPrefab, player.transform.position, Quaternion.identity);
-
                     if(itemNumbers[i] == 0){
                         items.Remove(item);
                         itemNumbers.Remove(itemNumbers[i]);
-                        // Instantiate the item object at the position of the player
                     }
                 }
             }
+        } else {
+            Debug.Log("Item not in inventory");
         }
-
         ResetButtonItems();
         DisplayItems();
     }
