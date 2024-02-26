@@ -5,12 +5,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Text;
 
-public class ItemButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ItemButton : MonoBehaviour
 {
     public int buttonID;
     public Item thisItem;
 
     public ToolTip toolTip;
+
+    bool isToolTipShown = false;
 
     private Item GetThisItem(){
         for(int i = 0; i < GameManager.instance.items.Count; i++){
@@ -22,9 +24,19 @@ public class ItemButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         return thisItem;
     }
 
+    public void InfoButton(){
+        if(!isToolTipShown){
+            ShowToolTip();
+            isToolTipShown = true;
+        } else {
+            HideToolTip();
+            isToolTipShown = false;
+        }
+    }
+
     public void CloseButton(){
         GameManager.instance.RemoveItem(GetThisItem());
-
+        /*
         thisItem = GetThisItem();
         if(thisItem != null){
             toolTip.ShowToolTip();
@@ -32,10 +44,10 @@ public class ItemButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         } else {
             toolTip.HideToolTip();
             toolTip.UpdateToolTip("");
-        }
+        }*/
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void ShowToolTip()
     {
         GetThisItem();
 
@@ -46,7 +58,7 @@ public class ItemButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void HideToolTip()
     {
         //GetThisItem();
 
