@@ -6,6 +6,10 @@ public class RoomSpawner1 : MonoBehaviour
 {
     public int openingDirecion;
 
+    public string Down1;
+    public string Up2;
+    public string left3;
+    public string right4;
 
     private RoomTemplates templates;
     private int rand;
