@@ -12,8 +12,9 @@ public class Destroyer : MonoBehaviour
 
    void OnTriggerEnter2D(Collider2D other){
     if(other.CompareTag("SpawnPoint")){
+        Debug.Log("Destroying");
         if(other.GetComponent<RoomSpawner1>().openingDirecion != 0){
-            Destroy(other.gameObject);
+            Destroy(other.transform.parent.gameObject);
         }    
     }
    }
