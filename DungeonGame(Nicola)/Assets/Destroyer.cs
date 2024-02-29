@@ -15,7 +15,7 @@ public class Destroyer : MonoBehaviour
         Debug.Log("Destroying");
         if(other.GetComponent<RoomSpawner1>().openingDirecion != 0){
             Destroy(other.transform.parent.gameObject);
-        }    
+        }
     }
    }
 }
