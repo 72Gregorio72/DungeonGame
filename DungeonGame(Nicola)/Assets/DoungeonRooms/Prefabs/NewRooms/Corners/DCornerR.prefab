@@ -865,6 +865,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4055538208557562282, guid: b1d9aad663b24784bbc07e566f2deaaf, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4821924380006139998, guid: b1d9aad663b24784bbc07e566f2deaaf, type: 3}
       propertyPath: m_Name
       value: SpawnerDoor

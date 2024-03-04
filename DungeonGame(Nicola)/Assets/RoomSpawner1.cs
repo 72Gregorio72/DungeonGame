@@ -20,6 +20,8 @@ public class RoomSpawner1 : MonoBehaviour
     int maxRooms;
     public RoomsCreated rooms;
 
+    public bool isSpawned = false;
+
     public string type; 
 
     void Start(){
@@ -28,11 +30,16 @@ public class RoomSpawner1 : MonoBehaviour
         Hallwaytemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<HallwayTemplates>();
         rooms = GameObject.FindGameObjectWithTag("NumberOfRoom").GetComponent<RoomsCreated>();
         Invoke("Spawn", 0.1f);
+        Invoke("checkSpawn", 0.05f);
+    }
+
+    void checkSpawn(){
+        isSpawned = true;
+        Debug.Log("Spawned: " + isSpawned);
     }
 
     // Update is called once per frame
-    void Spawn()
-    {
+    void Spawn(){
         int percentage = 0;
         currentRooms = rooms.roomsNum;
         maxRooms = rooms.maxRooms;
@@ -139,9 +146,8 @@ public class RoomSpawner1 : MonoBehaviour
 
                     break;
                     }
-
-                    spawned = true;
                 }
+                spawned = true;
             }   
         } else  if(currentRooms >= maxRooms && !spawned && openingDirecion != 0){
             Instantiate(templates.closedRoom, transform.position, transform.rotation);
