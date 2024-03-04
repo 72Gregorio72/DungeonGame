@@ -240,6 +240,7 @@ MonoBehaviour:
   left3: 
   right4: 
   rooms: {fileID: 0}
+  type: 
 --- !u!114 &1636911229888250181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +551,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7759184025142241130}
     m_Modifications:
+    - target: {fileID: 902390009420504319, guid: b1d9aad663b24784bbc07e566f2deaaf, type: 3}
+      propertyPath: type
+      value: Hallway
+      objectReference: {fileID: 0}
     - target: {fileID: 902390009420504319, guid: b1d9aad663b24784bbc07e566f2deaaf, type: 3}
       propertyPath: openingDirecion
       value: 2

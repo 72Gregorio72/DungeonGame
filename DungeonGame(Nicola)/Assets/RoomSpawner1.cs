@@ -12,14 +12,20 @@ public class RoomSpawner1 : MonoBehaviour
     public string right4;
 
     private RoomTemplates templates;
+    private CornerTemplates Cornertemplates;
+    private HallwayTemplates Hallwaytemplates;
     private int rand;
     private bool spawned = false;
     int currentRooms;
     int maxRooms;
     public RoomsCreated rooms;
 
+    public string type; 
+
     void Start(){
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+        Cornertemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<CornerTemplates>();
+        Hallwaytemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<HallwayTemplates>();
         rooms = GameObject.FindGameObjectWithTag("NumberOfRoom").GetComponent<RoomsCreated>();
         Invoke("Spawn", 0.1f);
     }
@@ -27,43 +33,109 @@ public class RoomSpawner1 : MonoBehaviour
     // Update is called once per frame
     void Spawn()
     {
+        int percentage = 0;
         currentRooms = rooms.roomsNum;
         maxRooms = rooms.maxRooms;
         if(currentRooms < maxRooms){
             if(!spawned){
+
+                percentage = Random.Range(0, 100);
+
+                if(type == "Room"){
+                    if(percentage < 45){
+                        type = "Hallway";
+                    } else if(percentage < 90){
+                        type = "Corner";
+                    } else {
+                        type = "Room";
+                    }
+                } else if(type == "Hallway"){
+                    if(percentage < 70){
+                        type = "Room";
+                    } else if(percentage < 90){
+                        type = "Corner";
+                    } else {
+                        type = "Hallway";
+                    }
+                } else if(type == "Corner"){
+                    if(percentage < 45){
+                        type = "Room";
+                    } else if(percentage < 90){
+                        type = "Hallway";
+                    } else {
+                        type = "Corner";
+                    }
+                }
+
                 switch(openingDirecion){
                     case 1:{//1 = bottom
-
-                        rand = Random.Range(0, templates.bottomRooms.Length);
-                        Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-                        rooms.AddRoom();
+                        if(type == "Room" ){
+                            rand = Random.Range(0, templates.bottomRooms.Length);
+                            Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+                            rooms.AddRoom();
+                        } else if(type == "Corner"){
+                            rand = Random.Range(0, Cornertemplates.bottomCorner.Length);
+                            Instantiate(Cornertemplates.bottomCorner[rand], transform.position, Cornertemplates.bottomCorner[rand].transform.rotation);
+                            rooms.AddRoom();
+                        } else if(type == "Hallway"){
+                            rand = Random.Range(0, Hallwaytemplates.bottomHallway.Length);
+                            Instantiate(Hallwaytemplates.bottomHallway[rand], transform.position, Hallwaytemplates.bottomHallway[rand].transform.rotation);
+                            rooms.AddRoom();
+                        }  
 
                     break;
                     }
 
                     case 2:{//2 = top
-                    
-                        rand = Random.Range(0, templates.topRooms.Length);
-                        Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
-                        rooms.AddRoom();
+                            if(type == "Room" ){
+                            rand = Random.Range(0, templates.topRooms.Length);
+                            Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
+                            rooms.AddRoom();
+                        } else if(type == "Corner"){
+                            rand = Random.Range(0, Cornertemplates.topCorner.Length);
+                            Instantiate(Cornertemplates.topCorner[rand], transform.position, Cornertemplates.topCorner[rand].transform.rotation);
+                            rooms.AddRoom();
+                        } else if(type == "Hallway"){
+                            rand = Random.Range(0, Hallwaytemplates.topHallway.Length);
+                            Instantiate(Hallwaytemplates.topHallway[rand], transform.position, Hallwaytemplates.topHallway[rand].transform.rotation);
+                            rooms.AddRoom();
+                        }
 
                     break;
                     }
 
                     case 3:{// 3 = left
-
-                        rand = Random.Range(0, templates.leftRooms.Length);
-                        Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
-                        rooms.AddRoom();
+                        if(type == "Room" ){
+                            rand = Random.Range(0, templates.leftRooms.Length);
+                            Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
+                            rooms.AddRoom();
+                        } else if(type == "Corner"){
+                            rand = Random.Range(0, Cornertemplates.leftCorner.Length);
+                            Instantiate(Cornertemplates.leftCorner[rand], transform.position, Cornertemplates.leftCorner[rand].transform.rotation);
+                            rooms.AddRoom();
+                        } else if(type == "Hallway"){
+                            rand = Random.Range(0, Hallwaytemplates.leftHallway.Length);
+                            Instantiate(Hallwaytemplates.leftHallway[rand], transform.position, Hallwaytemplates.leftHallway[rand].transform.rotation);
+                            rooms.AddRoom();
+                        }
 
                     break;
                     }
 
                     case 4:{//4 = right
-
-                        rand = Random.Range(0, templates.rightRooms.Length);
-                        Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
-                        rooms.AddRoom();
+                        if(type == "Room" ){
+                            rand = Random.Range(0, templates.rightRooms.Length);
+                            Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
+                            rooms.AddRoom();
+                        } else if(type == "Corner"){
+                            rand = Random.Range(0, Cornertemplates.rightCorner.Length);
+                            Instantiate(Cornertemplates.rightCorner[rand], transform.position, Cornertemplates.rightCorner[rand].transform.rotation);
+                            rooms.AddRoom();
+                        } else if(type == "Hallway"){
+                            rand = Random.Range(0, Hallwaytemplates.rightHallway.Length);
+                            Instantiate(Hallwaytemplates.rightHallway[rand], transform.position, Hallwaytemplates.rightHallway[rand].transform.rotation);
+                            rooms.AddRoom();
+                        }
 
                     break;
                     }
