@@ -22,15 +22,21 @@ public class RoomSpawner1 : MonoBehaviour
 
     public bool isSpawned = false;
 
-    public string type; 
+    public string type;
 
+    private float waitTime = 5f;
     void Start(){
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         Cornertemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<CornerTemplates>();
         Hallwaytemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<HallwayTemplates>();
         rooms = GameObject.FindGameObjectWithTag("NumberOfRoom").GetComponent<RoomsCreated>();
+
+        //rand = Random.Range(0, 100);
+
         Invoke("Spawn", 0.1f);
         Invoke("checkSpawn", 0.05f);
+
+        Destroy(gameObject, waitTime);
     }
 
     void checkSpawn(){
@@ -49,26 +55,26 @@ public class RoomSpawner1 : MonoBehaviour
                 percentage = Random.Range(0, 100);
 
                 if(type == "Room"){
-                    if(percentage < 45){
+                    if(percentage < 0){
                         type = "Hallway";
-                    } else if(percentage < 90){
+                    } else if(percentage < 80){
                         type = "Corner";
                     } else {
                         type = "Room";
                     }
                 } else if(type == "Hallway"){
-                    if(percentage < 70){
+                    if(percentage < 80){
                         type = "Room";
-                    } else if(percentage < 90){
+                    } else if(percentage < 95){
                         type = "Corner";
                     } else {
                         type = "Hallway";
                     }
                 } else if(type == "Corner"){
-                    if(percentage < 45){
+                    if(percentage < 70){
                         type = "Room";
-                    } else if(percentage < 90){
-                        type = "Hallway";
+                    } else if(percentage < 95){
+                        type = "Corner";
                     } else {
                         type = "Corner";
                     }

@@ -156,6 +156,7 @@ MonoBehaviour:
   left3: 
   right4: 
   rooms: {fileID: 0}
+  isSpawned: 0
   type: 
 --- !u!114 &1636911229888250181
 MonoBehaviour:
@@ -557,6 +558,7 @@ GameObject:
   - component: {fileID: 7759184025142241130}
   - component: {fileID: 4525280676988537746}
   - component: {fileID: 5076777281031823591}
+  - component: {fileID: 3706833317043102915}
   m_Layer: 0
   m_Name: R-RoomOpen
   m_TagString: Untagged
@@ -655,6 +657,18 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &3706833317043102915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7405361524993006333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ceaf9d875b118e42b7075e4bc7de68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2704724630489334749
 PrefabInstance:
   m_ObjectHideFlags: 0

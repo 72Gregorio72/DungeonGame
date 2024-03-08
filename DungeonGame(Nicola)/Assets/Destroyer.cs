@@ -6,11 +6,18 @@ public class Destroyer : MonoBehaviour
 {
     //public RoomSpawner1 spawner;
 
+    private RoomTemplates templates;
+
+    void Start()
+    {
+        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+    }
+
     void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("SpawnPoint")){
             if(other.transform.gameObject.GetComponent<RoomSpawner1>().isSpawned){
                 Destroy(this.transform.parent.gameObject);
-                Debug.Log(other.transform.parent.gameObject.transform.position);
+                templates.rooms.Remove(this.transform.parent.gameObject);
             }
         }
     }
