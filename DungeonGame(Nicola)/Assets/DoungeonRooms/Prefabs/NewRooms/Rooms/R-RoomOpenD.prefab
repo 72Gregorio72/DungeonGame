@@ -241,7 +241,7 @@ MonoBehaviour:
   right4: 
   rooms: {fileID: 0}
   isSpawned: 0
-  type: 
+  type: Room
 --- !u!114 &1636911229888250181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ac57c2069a75f4fb3e76138b8f8dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rooms: {fileID: 0}
 --- !u!1 &1149348486246048807
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,15 @@ public class RoomsCreated : MonoBehaviour
         
     }
 
-    public void AddRoom(){
-        roomsNum++;
+    public void AddRoom(string type){
+        if(type == "Room"){
+            roomsNum++;
+        }
+    }
+
+    public void RemoveRoom(string type){
+        if(type == "Room"){
+            roomsNum--;
+        }
     }
 }

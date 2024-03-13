@@ -41,7 +41,6 @@ public class RoomSpawner1 : MonoBehaviour
 
     void checkSpawn(){
         isSpawned = true;
-        Debug.Log("Spawned: " + isSpawned);
     }
 
     // Update is called once per frame
@@ -55,17 +54,17 @@ public class RoomSpawner1 : MonoBehaviour
                 percentage = Random.Range(0, 100);
 
                 if(type == "Room"){
-                    if(percentage < 0){
+                    if(percentage < 80){
                         type = "Hallway";
                     } else if(percentage < 80){
-                        type = "Corner";
+                        type = "Hallway";
                     } else {
                         type = "Room";
                     }
                 } else if(type == "Hallway"){
                     if(percentage < 80){
                         type = "Room";
-                    } else if(percentage < 95){
+                    } else if(percentage < 90){
                         type = "Corner";
                     } else {
                         type = "Hallway";
@@ -74,9 +73,9 @@ public class RoomSpawner1 : MonoBehaviour
                     if(percentage < 70){
                         type = "Room";
                     } else if(percentage < 95){
-                        type = "Corner";
+                        type = "Hallway";
                     } else {
-                        type = "Corner";
+                        type = "Hallway";
                     }
                 }
 
@@ -85,15 +84,15 @@ public class RoomSpawner1 : MonoBehaviour
                         if(type == "Room" ){
                             rand = Random.Range(0, templates.bottomRooms.Length);
                             Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         } else if(type == "Corner"){
                             rand = Random.Range(0, Cornertemplates.bottomCorner.Length);
                             Instantiate(Cornertemplates.bottomCorner[rand], transform.position, Cornertemplates.bottomCorner[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         } else if(type == "Hallway"){
                             rand = Random.Range(0, Hallwaytemplates.bottomHallway.Length);
                             Instantiate(Hallwaytemplates.bottomHallway[rand], transform.position, Hallwaytemplates.bottomHallway[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         }  
 
                     break;
@@ -103,15 +102,15 @@ public class RoomSpawner1 : MonoBehaviour
                             if(type == "Room" ){
                             rand = Random.Range(0, templates.topRooms.Length);
                             Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         } else if(type == "Corner"){
                             rand = Random.Range(0, Cornertemplates.topCorner.Length);
                             Instantiate(Cornertemplates.topCorner[rand], transform.position, Cornertemplates.topCorner[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         } else if(type == "Hallway"){
                             rand = Random.Range(0, Hallwaytemplates.topHallway.Length);
                             Instantiate(Hallwaytemplates.topHallway[rand], transform.position, Hallwaytemplates.topHallway[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         }
 
                     break;
@@ -121,15 +120,15 @@ public class RoomSpawner1 : MonoBehaviour
                         if(type == "Room" ){
                             rand = Random.Range(0, templates.leftRooms.Length);
                             Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         } else if(type == "Corner"){
                             rand = Random.Range(0, Cornertemplates.leftCorner.Length);
                             Instantiate(Cornertemplates.leftCorner[rand], transform.position, Cornertemplates.leftCorner[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         } else if(type == "Hallway"){
                             rand = Random.Range(0, Hallwaytemplates.leftHallway.Length);
                             Instantiate(Hallwaytemplates.leftHallway[rand], transform.position, Hallwaytemplates.leftHallway[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         }
 
                     break;
@@ -139,15 +138,15 @@ public class RoomSpawner1 : MonoBehaviour
                         if(type == "Room" ){
                             rand = Random.Range(0, templates.rightRooms.Length);
                             Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         } else if(type == "Corner"){
                             rand = Random.Range(0, Cornertemplates.rightCorner.Length);
                             Instantiate(Cornertemplates.rightCorner[rand], transform.position, Cornertemplates.rightCorner[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         } else if(type == "Hallway"){
                             rand = Random.Range(0, Hallwaytemplates.rightHallway.Length);
                             Instantiate(Hallwaytemplates.rightHallway[rand], transform.position, Hallwaytemplates.rightHallway[rand].transform.rotation);
-                            rooms.AddRoom();
+                            rooms.AddRoom(type);
                         }
 
                     break;

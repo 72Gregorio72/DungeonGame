@@ -5971,7 +5971,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8865014552182946164, guid: 615cdd6c1da48814185bd2a76597ca56, type: 3}
       propertyPath: maxRooms
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8865014552182946170, guid: 615cdd6c1da48814185bd2a76597ca56, type: 3}
       propertyPath: m_Name
